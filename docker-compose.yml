@@ -3,10 +3,11 @@ services:
   app:
     build: ./
     ports:
-      - "3000:3000"
+      - "3000:${PORT}"
     command: node app.js
     environment:
       NODE_ENV: "${NODE_ENV}"
+      PORT: "${PORT}"
     volumes:
       - ./:/app
     depends_on:
