@@ -1,0 +1,14 @@
+{
+    "application" : {
+        "port": 3000
+    }, 
+    "database": {
+        "dbName": "ngocrong",
+        "dbHost": "localhost",
+        "dbPort": 33060,
+        "dbUser": "root",
+        "dbPassword": "root",
+        "logging": false,
+        "dialect": "mysql"
+    }
+}
