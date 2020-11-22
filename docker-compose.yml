@@ -4,12 +4,12 @@ services:
     build: ./
     ports:
       - "3000:${PORT}"
-    command: node app.js
+    command: node index.js
     environment:
       NODE_ENV: "${NODE_ENV}"
       PORT: "${PORT}"
-    volumes:
-      - ./:/app
+    # volumes:
+    #   - ./:/app
     depends_on:
       - db
     links:

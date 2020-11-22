@@ -8,17 +8,26 @@ const jwt       = require('jsonwebtoken')
 const response  = require('./app/utils/response')
 const { sequelize, Info } = require('./app/models')
 const path      = require('path')
-
+var history = require('connect-history-api-fallback');
 app.use(cors());
 app.use(bodyParse.json())
 app.use(bodyParse.urlencoded({ extended: true }))
-app.use(express.static(path.join(__dirname, 'dist')))
+// app.use(express.static(path.join(__dirname, 'dist')))
 app.use(passport.initialize())
 app.use(passport.session())
 
-// app.get('/', function(req, res) {
-//     console.log(req.params)
-//     res.send(response(200, 'Hi', 'Hello'))
+const staticFileMiddleware = express.static(path.join(__dirname, 'dist'));
+
+app.use(staticFileMiddleware);
+
+app.use(history({
+  index: path.join(__dirname, '/dist/index.html')
+}));
+
+app.use(staticFileMiddleware);
+// app.get('/tai-khoan' , function(req, res) {
+//     console.log("100")
+//     res.send(__dirname, '/dist/index.html')
 // })
 
 app.post('/get-account', function(req, res) {
