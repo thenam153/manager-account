@@ -25,10 +25,9 @@ app.use(history({
 }));
 
 app.use(staticFileMiddleware);
-// app.get('/tai-khoan' , function(req, res) {
-//     console.log("100")
-//     res.send(__dirname, '/dist/index.html')
-// })
+app.get('/tai-khoan' , function(req, res) {
+	res.redirect('/');
+})
 
 app.post('/get-account', function(req, res) {
     Info.findAll({
